@@ -1,4 +1,4 @@
-	源码编译nginx支持https
+#源码编译nginx支持https
 	
 基于docker官方centos7镜像构建的nginx镜像
 
