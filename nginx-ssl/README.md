@@ -1,5 +1,5 @@
-	nginx-ssl
-
+	源码编译nginx支持https
+	
 基于docker官方centos7镜像构建的nginx镜像
 
 源码编译nginx并加入ssl参数使其支持https，nginx版本为：1.10.2
