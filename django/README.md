@@ -6,8 +6,10 @@ docker-compose run web django-admin.py startproject docker_dj .
 ```
 
 修改工程docker_dj/settings.py文件
+
 连接限制
 ```ALLOWED_HOSTS = ['*']```
+
 数据库配置
 ```
 ATABASES = {
