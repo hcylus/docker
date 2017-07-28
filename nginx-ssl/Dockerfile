@@ -11,6 +11,7 @@ WORKDIR /root
 RUN echo 'install epel repo'
 RUN yum -y install epel-release
 RUN yum makecache
+RUN yum makecache fast
 
 RUN echo 'install system-tools'
 RUN yum install -y ntp tree net-tools lsof bind-utils nc lrzsz rsync telnet
