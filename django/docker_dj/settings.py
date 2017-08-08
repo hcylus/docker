@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for docker_dj project.
 
@@ -11,6 +12,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'devops.apps.DevopsConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +86,13 @@ DATABASES = {
         'PASSWORD': 'docker',
         'HOST': 'mysql',
         'PORT': '3306',
+        'OPTIONS': {
+                    'charset': 'utf8',
+                    'init_command': 'SET '
+                        'default_storage_engine=INNODB,'
+                        'character_set_connection=utf8,'
+                        'collation_connection=utf8mb4_unicode_ci'
+        }
     }
 }
 
