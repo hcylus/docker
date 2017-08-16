@@ -14,7 +14,7 @@ services:
   ports:
    - 3306:3306
   volumes:
-   - /Users/orgx/github/docker_volumes/docker_dj:/var/lib/mysql
+   - $HOME/docker_volumes/docker_dj:/var/lib/mysql
 
  web:
   build: .
