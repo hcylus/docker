@@ -10,9 +10,9 @@ RUN echo "${TIMEZONE}" > /etc/timezone
 
 USER jenkins
 
-ADD . /tmp
+ADD . /tmp/jenkins/
 
-RUN ls -l
+RUN ls -l /tmp/jenkins/
 
 #COPY jenkins/plugins.txt /usr/share/jenkins/plugins.txt
 
