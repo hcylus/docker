@@ -8,3 +8,4 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
 && echo "${TIMEZONE}" > /etc/timezone && apk del tzdata
 
 RUN npm install -g pm2
+
