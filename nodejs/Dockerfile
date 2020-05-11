@@ -6,5 +6,4 @@ ENV TIMEZONE=Asia/Shanghai
 
 RUN echo "${TIMEZONE}" > /etc/timezone
 
-# Install pm2
 RUN npm install -g pm2
