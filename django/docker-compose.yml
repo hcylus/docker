@@ -1,12 +1,12 @@
-version: '3'
+version: '3.9'
 services:
- mysql:
+ db:
   image: mysql:5.7
   environment:
-   - MYSQL_ROOT_PASSWORD=yunwei
-   - MYSQL_DATABASE=docker
-   - MYSQL_USER=docker
-   - MYSQL_PASSWORD=docker
+   - MYSQL_ROOT_PASSWORD=3gKU2N1^dSd82E@b
+   - MYSQL_DATABASE=dj
+   - MYSQL_USER=dj
+   - MYSQL_PASSWORD=N8J9pFhNGAA@kYUl
    - TZ=Asia/Shanghai
   command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --max-connections=2000 --default-time-zone='+8:00'
   expose:
@@ -14,7 +14,7 @@ services:
   ports:
    - 3306:3306
   volumes:
-   - $HOME/docker_volumes/docker_dj:/var/lib/mysql
+   - ./data:/var/lib/mysql
 
  web:
   build: .
@@ -24,7 +24,9 @@ services:
    - .:/code
   ports:
    - 8000:8000
+  environment:
+    - DB_NAME=dj
+    - DB_USER=dj
+    - DB_PASSWORD=N8J9pFhNGAA@kYUl
   depends_on:
-   - mysql
-  links:
-   - mysql
+   - db

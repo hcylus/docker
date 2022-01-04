@@ -2,26 +2,37 @@
 
 创建docker_dj工程
 ```
-docker-compose run web django-admin.py startproject docker_dj .
+docker-compose run web django-admin.py startproject dj .
 ```
 
-修改工程docker_dj/settings.py文件
+sudo chown -R $USER:$USER .
+
+修改工程dj/settings.py文件
 
 连接限制
 ```ALLOWED_HOSTS = ['*']```
 
 数据库配置
 ```
-ATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'docker',
-        'USER': 'docker',
-        'PASSWORD': 'docker',
-        'HOST': 'mysql',
-        'PORT': '3306',
+        'NAME': os.environ.get('DB_NAME','dj'),
+        'USER': os.environ.get('DB_USER','dj'),
+        'PASSWORD': os.environ.get('DB_PASSWORD',''),
+        'HOST': 'db',
+        'PORT': 3306,
+        'OPTIONS': {
+                    'charset': 'utf8',
+                    'init_command': 'SET '
+                        'default_storage_engine=INNODB,'
+                        'character_set_connection=utf8,'
+                        'collation_connection=utf8mb4_unicode_ci'
+        }
+
     }
 }
+
 ```
 时区和中文显示
 ```
