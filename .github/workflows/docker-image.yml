@@ -28,6 +28,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./kafka-connect-elasticsearch-sink/Dockerfile
+          file: ./kafka-connect-opensearch-sink/Dockerfile
           push: true
-          tags: hcylus/kafka-connect-elasticsearch-sink:latest        
+          tags: hcylus/kafka-connect-opensearch-sink:latest        
